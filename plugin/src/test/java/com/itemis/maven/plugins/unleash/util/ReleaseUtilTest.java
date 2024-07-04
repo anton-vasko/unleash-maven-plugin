@@ -6,10 +6,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.mockito.Matchers;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import com.google.common.base.Optional;
+import com.google.inject.matcher.Matchers;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 
@@ -66,7 +67,7 @@ public class ReleaseUtilTest {
   public void testGetReleaseVersion_Prompter(String version, String defaultReleaseVersion, String userInput,
       String expected) throws Exception {
     Prompter prompter = Mockito.mock(Prompter.class);
-    Mockito.when(prompter.prompt((String) Matchers.notNull(), (String) Matchers.notNull())).thenReturn(userInput);
+    Mockito.when(prompter.prompt((String) ArgumentMatchers.notNull(), (String) ArgumentMatchers.notNull())).thenReturn(userInput);
     Assert.assertEquals(expected,
         ReleaseUtil.getReleaseVersion(version, Optional.fromNullable(defaultReleaseVersion), Optional.of(prompter)));
   }
@@ -86,7 +87,7 @@ public class ReleaseUtilTest {
   public void testGetNextDevelopmentVersion_Prompter(String version, String defaultReleaseVersion, String userInput,
       String expected) throws Exception {
     Prompter prompter = Mockito.mock(Prompter.class);
-    Mockito.when(prompter.prompt((String) Matchers.notNull(), (String) Matchers.notNull())).thenReturn(userInput);
+    Mockito.when(prompter.prompt((String) ArgumentMatchers.notNull(), (String) ArgumentMatchers.notNull())).thenReturn(userInput);
     Assert.assertEquals(expected, ReleaseUtil.getNextDevelopmentVersion(version,
         Optional.fromNullable(defaultReleaseVersion), Optional.of(prompter), VersionUpgradeStrategy.DEFAULT));
   }

@@ -1,87 +1,158 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.itemis</groupId>
-    <artifactId>org-parent</artifactId>
-    <version>3</version>
-  </parent>
+	<parent>
+		<groupId>com.itemis</groupId>
+		<artifactId>org-parent</artifactId>
+		<version>3</version>
+	</parent>
 
-  <groupId>com.itemis.maven.plugins</groupId>
-  <artifactId>unleash-parent</artifactId>
-  <version>2.10.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+	<groupId>com.itemis.maven.plugins</groupId>
+	<artifactId>unleash-parent</artifactId>
+	<version>2.11.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
-  <name>Unleash Parent</name>
-  <description>An alternative release plugin for maven projects that tries to reduce the risk of failure during the release process as well as the number of builds and scm operations. This plugin shall provide a faster, more stable but also more customizable release process.</description>
-  <url>https://github.com/shillner/unleash-maven-plugin</url>
-  <inceptionYear>2016</inceptionYear>
+	<name>Unleash Parent</name>
+	<description>An alternative release plugin for maven projects that tries to
+		reduce the risk of failure during the release process as well as the
+		number of builds and scm operations. This plugin shall provide a faster,
+		more stable but also more customizable release process.</description>
+	<url>https://github.com/anton-vasko/unleash-maven-plugin</url>
+	<inceptionYear>2016</inceptionYear>
 
-  <developers>
-    <developer>
-      <id>shillner</id>
-      <name>Stanley Hillner</name>
-      <organization>itemis AG</organization>
-      <organizationUrl>https://itemis.com/</organizationUrl>
-      <timezone>1</timezone>
-    </developer>
-  </developers>
+	<developers>
+		<!--
+		<developer>
+			<id>shillner</id>
+			<name>Stanley Hillner</name>
+			<organization>itemis AG</organization>
+			<organizationUrl>https://itemis.com/</organizationUrl>
+			<timezone>1</timezone>
+		</developer>-->
+		<developer>
+			<id>anton</id>
+			<name>Anton Vasko</name>
+			<!--<organization>itemis AG</organization>
+			<organizationUrl>https://itemis.com/</organizationUrl>-->
+			<timezone>1</timezone>
+		</developer>
+	</developers>
 
-  <scm>
-    <connection>scm:git:https://github.com/shillner/unleash-maven-plugin.git</connection>
-    <url>https://github.com/shillner/unleash-maven-plugin</url>
-    <tag>HEAD</tag>
-  </scm>
+	<scm>
+		<connection>scm:git:https://github.com/anton-vasko/unleash-maven-plugin.git</connection>
+		<url>https://github.com/anton-vasko/unleash-maven-plugin</url>
+		<tag>HEAD</tag>
+	</scm>
 
-  <issueManagement>
-    <system>GitHub</system>
-    <url>https://github.com/shillner/unleash-maven-plugin/issues</url>
-  </issueManagement>
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/anton-vasko/unleash-maven-plugin/issues</url>
+	</issueManagement>
 
-  <modules>
-    <module>scm-provider-api</module>
-    <module>plugin</module>
-    <module>utils</module>
-  </modules>
+	<modules>
+		<module>scm-provider-api</module>
+		<module>plugin</module>
+		<module>utils</module>
+	</modules>
 
-  <properties>
-    <version.java>1.8</version.java>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
 
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <source>${version.java}</source>
-            <target>${version.java}</target>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+		<aether.version>1.1.0</aether.version>
+		<artifact-spy-plugin.version>1.0.6</artifact-spy-plugin.version>
+		<cdi-api.version>1.2</cdi-api.version>
+		<cdi-plugin-utils.version>3.4.0</cdi-plugin-utils.version>
+		<commons-lang3.version>3.14.0</commons-lang3.version>
+		<maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+		<guava.version>33.0.0-jre</guava.version>
+		<maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
+		<junit.version>4.13.2</junit.version>
+		<junit-dataprovider.version>1.10.3</junit-dataprovider.version>
+		<!--<junit-dataprovider.version>1.13.1</junit-dataprovider.version>-->
+		<maven.version>3.3.9</maven.version>
+		<maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
+		<maven-invoker.version>3.2.0</maven-invoker.version>
+		<maven-plugin-plugin.version>3.11.0</maven-plugin-plugin.version>
+		<mockito-core.version>5.10.0</mockito-core.version>
+		<plexus-interactivity-api.version>1.3</plexus-interactivity-api.version>
+		<plexus-component-metadata.version>2.2.0</plexus-component-metadata.version>
+		<tycho-versions-plugin.version>1.1.0</tycho-versions-plugin.version>
+		<versions-maven-plugin.version>2.16.2</versions-maven-plugin.version>
+		<weld-se.version>2.3.3.Final</weld-se.version>
+	</properties>
 
-  <profiles>
-    <profile>
-      <id>disable-java8-doclint</id>
-      <activation>
-        <jdk>[1.8,)</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-javadoc-plugin</artifactId>
-              <configuration>
-                <additionalparam>-Xdoclint:none</additionalparam>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-  </profiles>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>${maven-enforcer-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${version.java}</source>
+						<target>${version.java}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>${maven.version}</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>${java.version}</version>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>disable-java8-doclint</id>
+			<activation>
+				<jdk>[1.8,)</jdk>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>${maven-javadoc-plugin.version}</version>
+							<configuration>
+								<additionalparam>-Xdoclint:none</additionalparam>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
 </project>

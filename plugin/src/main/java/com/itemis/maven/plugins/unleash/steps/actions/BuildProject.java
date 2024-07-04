@@ -20,7 +20,8 @@ import org.apache.maven.shared.invoker.InvocationRequest;
 import org.apache.maven.shared.invoker.InvocationResult;
 import org.apache.maven.shared.invoker.Invoker;
 import org.apache.maven.shared.invoker.MavenInvocationException;
-import org.codehaus.plexus.util.cli.CommandLineException;
+//import org.codehaus.plexus.util.cli.CommandLineException;
+import org.apache.maven.shared.utils.cli.CommandLineException;
 
 import com.google.common.base.Optional;
 import com.itemis.maven.plugins.cdi.CDIMojoProcessingStep;
@@ -75,7 +76,8 @@ public class BuildProject implements CDIMojoProcessingStep {
 
       InvocationResult result = invoker.execute(request);
       if (result.getExitCode() != 0) {
-        CommandLineException executionException = result.getExecutionException();
+    	  //org.codehaus.plexus.util.cli.CommandLineException executionException = result.getExecutionException();
+    	  CommandLineException executionException = result.getExecutionException();
         if (executionException != null) {
           throw new MojoFailureException("Error during project build: " + executionException.getMessage(),
               executionException);
@@ -125,7 +127,8 @@ public class BuildProject implements CDIMojoProcessingStep {
     }
     request.addShellEnvironment("isUnleashBuild", "true");
     request.setOffline(this.settings.isOffline());
-    request.setInteractive(this.settings.isInteractiveMode());
+    //request.setInteractive(this.settings.isInteractiveMode());
+    request.setBatchMode(!this.settings.isInteractiveMode());
 
     MavenExecutionRequest originalRequest = this.session.getRequest();
     File globalSettingsFile = originalRequest.getGlobalSettingsFile();
